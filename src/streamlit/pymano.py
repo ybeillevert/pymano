@@ -34,7 +34,7 @@ df=df.head(2000)
 #SIDEBAR______________________________________________________________
 
 with st.sidebar:
-    menu = option_menu("Menu", ["Accueil", "Pymano", "Présentation des données", "Transfer Learning", "CRNN", "Canvas", "À vous de jouer!", "La team Pymano"],icons=["house-fill", "blockquote-left", "bar-chart-line", "diagram-3", 'diagram-3-fill', 'pencil','camera-fill','person-fill'],menu_icon="app-indicator", default_index=0,
+    menu = option_menu("Menu", ["Accueil", "Pymano", "Présentation des données", "Transfer Learning", "CRNN", "Canvas", "À vous de jouer!"],icons=["house-fill", "blockquote-left", "bar-chart-line", "diagram-3", 'diagram-3-fill', 'pencil','camera-fill'],menu_icon="app-indicator", default_index=0,
                          styles={
         "container": {"padding": "5!important", "background-color": "white"},
         "icon": {"color": "palevioletred", "font-size": "25px"}, 
@@ -393,27 +393,3 @@ elif menu=="À vous de jouer!":
         pred = model(img)
         predictions = greedy_decoder(pred)[0]
         st.write("Le décodage traduit:",predictions)
-
-
-
-#______________________________________________________________________
-# LA TEAM PYMANO_______________________________________________________________
-
-elif menu == 'La team Pymano':
-    #TITRES________________x___x___x________________
-    title = """  <p style=font-family:Noteworthy;color:palevioletred;font-size:40px;" > A propos de l'équipe Pymano</p>"""
-    st.markdown(title, unsafe_allow_html=True)
-    st.write(" Tous trois issus de domaines différents, nous avons su joindre nos diverses connaissances et points forts afin de mener à bien ce projet.")
-    subtitle = """  <p style=font-family:Noteworthy;color:teal;font-size:20px;" > Qui sommes-nous?</p>"""
-
-    st.markdown(subtitle, unsafe_allow_html=True)
-    st.write("- Yvan BEILLEVERT, 36 ans, de Puteaux après des études de mathématiques et une formation en informatique a pu travailler pendant près de 12 dans ce domaine. [LinkedIn](https://www.linkedin.com/in/yvan-beillevert-b7235111)")
-    st.write("- Sophie ESCAICH, 32 ans, de Bordeaux, a étudié la biologie pendant un cursus de 7 ans, qui s'est terminé par un master d'océanographie. [LinkedIn](https://www.linkedin.com/in/sophie-escaich-143ba9a6)")
-    st.write("- Lydia RAHMOUN")
-    
-    
-    title = """  <p style=font-family:Noteworthy;color:palevioletred;font-size:40px;" > Les outils de travail</p>"""
-    st.markdown(title, unsafe_allow_html=True)
-    st.write(" Nous avons utiliser différents systèmes d'exploitation : OS pour Mac et Windows pour PC.  \n"
-             "La puissance de nos ordinateurs n'a pas permis d'exploiter complétement les données.  \n"
-             "Et nous avons principalement travailler via Github pour partager nos différents Jupyter Notebooks.  \n")

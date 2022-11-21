@@ -4,9 +4,9 @@ import tensorflow as tf
 from os.path import exists
 import csv
 
-csv_path = './data/words.csv';
+csv_path = '.\\data\\words.csv';
         
-def get_clean_dataframe(force_csv_rebuild = True, force_img_check = False, lowercase_only = False, remove_space=True, separator = '\t'):
+def get_clean_dataframe(force_csv_rebuild = False, force_img_check = False, lowercase_only = False, remove_space=True, separator = '\t'):
     
     if(force_csv_rebuild or not(exists(csv_path))):
         build_words_csv()

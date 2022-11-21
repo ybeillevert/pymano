@@ -6,7 +6,7 @@ import csv
 
 csv_path = './data/words.csv';
         
-def get_clean_dataframe(force_csv_rebuild = True, force_img_check = False, lowercase_only = False, remove_space=True, separator = '\t'):
+def get_clean_dataframe(force_csv_rebuild = False, force_img_check = False, lowercase_only = False, remove_space=True, separator = '\t'):
     
     if(force_csv_rebuild or not(exists(csv_path))):
         build_words_csv()
@@ -24,7 +24,7 @@ def get_clean_dataframe(force_csv_rebuild = True, force_img_check = False, lower
     
      # remove images in error
     if force_img_check:
-        img_path_in_errors = self.get_imgs_in_error(df)
+        img_path_in_errors = get_imgs_in_error(df)
     else:
         # We don't want to check images in errors everytime, so here is the list
         img_path_in_errors = ['./images/words/a01/a01-117/a01-117-05-02.png','./images/words/r06/r06-022/r06-022-03-05.png']        
