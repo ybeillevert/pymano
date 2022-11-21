@@ -1,0 +1,8 @@
+CNN/RNN (lowercase)
+    Epoch 1-13      : learning rate 1e-3
+    Epoch 14-17     : learning rate 1e-4
+    Epoch 18-20     : learning rate 1e-5
+CNN/RNN
+    Epoch 1-10      : learning rate 1e-3
+    Epoch 10-17     : learning rate 1e-4
+    Epoch 18-20     : learning rate 1e-5

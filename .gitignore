@@ -1,0 +1,6 @@
+data/*.csv
+images/forms/**/*.png
+images/lines/**/*.png
+images/sentences/**/*.png
+images/words/**/*.png
+*.pyc

@@ -1,0 +1,22 @@
+Last login: Tue Jul 19 08:37:59 on console
+streaml%                                                                        (base) sophieescaich@macbook-air-de-sophie ~ % cd /Users/sophieescaich/Documents/Github/Pymano/streamlit
+(base) sophieescaich@macbook-air-de-sophie streamlit % streamlit run pymano.py
+2022-07-19 08:54:35.478 INFO    numexpr.utils: NumExpr defaulting to 8 threads.
+
+  You can now view your Streamlit app in your browser.
+
+  Local URL: http://localhost:8501
+  Network URL: http://192.168.1.16:8501
+
+
+
+
+
+
+
+
+
+
+
+
+
