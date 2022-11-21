@@ -9,11 +9,6 @@ The final product should contain:
 
 This project was done in ~30 days and I was in a team of 3 people.
 
-## Disclaimer
-The code in the src folder are here for presentation purpose and are not meant to be run for several reasons :
-- The IAM database contains more than 2Go of images and Github is limited to 2Go. So if you want to train the model, you'll have to download them manually
-- The training of the CRNN take 6 hours for 20 epoc
-
 ## My role in the team
 To help the teamwork, I took the responsability of the project leader. My mission were:
 - Setup a notion project to share documents, guide and planning
@@ -32,7 +27,7 @@ My teammates were in charge of building a transfer learning model from a VGG16, 
 ## Reading suggestions
 First, I suggest to to check the Powerpoint presentation here [presentation](/documents/Pymano-Prez.pptx). 
 
-Then, you can check the code written in the [src](/src/)
+Then, you can check the code written in the CRNN_... files along with the [src/modules](/src/modules) folder
 
 And I you really like the subject, you can check our report here [report](/documents/Pymano_Rapport.pptx).
 
@@ -51,3 +46,14 @@ It contains a backup of the CRNN model and its metric after each epoch
 It contains some useful functions that were taken out from the notebook to help readability.
 
 ### src/streamlit
+It contains the code of the streamlit app. It's main purpose here is to allow you to test the model. To do that, you just have to run the following commands
+
+    pip install streamlit
+    pip install streamlit-drawable-canvas==0.7.0
+    cd .\src\streamlit
+    streamlit run pymano.py
+    
+## Disclaimer
+The code in the src folder are here for presentation purpose and are not meant to be run for several reasons :
+- The IAM database contains more than 2Go of images and Github is limited to 2Go. So if you want to train the model, you'll have to download them manually
+- The training of the CRNN take 6 hours for 20 epoc
