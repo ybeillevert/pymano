@@ -1,12 +1,14 @@
 import numpy as np
-from ipywidgets import Image
-from ipywidgets import ColorPicker, IntSlider, link, AppLayout, HBox, Button, SliderStyle, FloatSlider, VBox, HTML, Layout
-from ipycanvas import RoughCanvas, hold_canvas, Canvas
+from ipywidgets import ColorPicker, link, HBox, Button, FloatSlider, VBox, HTML, Layout
+from ipycanvas import hold_canvas, Canvas
 import tensorflow as tf
 import cv2
 from modules.pym_encoding import greedy_decoder
 
 class PymDrawingReader:
+    """
+    Canvas for testing the model in a jupyter notebook
+    """
     
     def __init__(self, model, width = 800, height = 250):
         canvas = Canvas(width=width, height=height, sync_image_data=True)

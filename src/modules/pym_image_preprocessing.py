@@ -3,6 +3,8 @@ import matplotlib.pyplot as plt
 
 @tf.function
 def preprocess(filepath, imgSize=(32, 128), scale=0.8):
+    """ Loads the image , then apply some random transformation to the image and resize it so that i can fit in 32*128 
+    """
     img = tf.io.read_file(filepath)
     img = tf.image.decode_png(img, channels=0)    
     img = img/255

@@ -7,6 +7,27 @@ import csv
 csv_path = '.\\data\\words.csv';
         
 def get_clean_dataframe(force_csv_rebuild = False, force_img_check = False, lowercase_only = False, remove_space=True, separator = '\t'):
+    """ Get a clean dataframe from the txt file that contains infos about images.
+     Parameters
+    ----------
+    force_csv_rebuild : boolean
+        True to rebuild the csv file even if it exists
+    force_img_check : boolean
+        True to perform a check on all image to get the ones that does not load. 
+        False to take the hard-coded list of images in error
+    lowercase_only : boolean
+        True to take pictures that have only lowercase letters    
+    remove_space : boolean
+        True to ignore picture that contains a whitespace
+    separator : str
+        The wanted separator of the target csv file ('\t' is recommended)
+
+    Returns
+    -------
+    Dataframe
+        The resulting dataframe
+    """
+    
     
     if(force_csv_rebuild or not(exists(csv_path))):
         build_words_csv()
@@ -35,11 +56,9 @@ def get_clean_dataframe(force_csv_rebuild = False, force_img_check = False, lowe
     
     return df
 
-def get_test_dataframe():
-    df = pd.read_csv('./images/test/test.csv', index_col=0, sep='\t', quoting = csv.QUOTE_NONE)
-    return df    
-
 def build_words_csv(separator = '\t'):
+    """Transforms the txt file to a csv file
+    """
     input_path = './data/words.txt';    
     img_path = './images/words/'
 
@@ -70,7 +89,8 @@ def build_words_csv(separator = '\t'):
         output_f.close()
 
 def get_imgs_in_error(dataframe):    
-    
+    """ For each image whose path is in the dataframe, tries to load it. If the load fails, add the path to a list. Then, returns the list
+    """
     file_path_list = dataframe['path'].tolist()
     
     # Split the list into chuncks to increase loop performance

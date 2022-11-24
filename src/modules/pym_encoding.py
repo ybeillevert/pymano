@@ -3,25 +3,17 @@ import numpy as np
 import tensorflow as tf
 
 def encode_labels(labels, char_list = list(string.printable)):
+    """ Encode the labels before giving it to the CRNN model
+    """
     table = tf.lookup.StaticHashTable(
     tf.lookup.KeyValueTensorInitializer(char_list, np.arange(len(char_list)), value_dtype=tf.int32),
         default_value = len(char_list),
         name='chard2id')
     return table.lookup(tf.compat.v1.string_split(labels, sep=''))
 
-def decode_codes(codes, char_list = list(string.printable)):
-    table = tf.lookup.StaticHashTable(
-        tf.lookup.KeyValueTensorInitializer(
-            np.arange(len(char_list)),
-            char_list,
-            key_dtype=tf.int32
-        ),
-        '',
-        name='id2char'
-    )
-    return table.lookup(codes)
-
 def greedy_decoder(logits, char_list = list(string.printable)):
+    """ Decode the prediction given by the CRNN model
+    """
     # ctc beam search decoder
     predicted_codes, _ = tf.nn.ctc_greedy_decoder(
         # shape of tensor [max_time x batch_size x num_classes]
@@ -39,3 +31,15 @@ def greedy_decoder(logits, char_list = list(string.printable)):
     text = tf.sparse.to_dense(text).numpy().astype(str)
 
     return list(map(lambda x: ''.join(x), text))
+
+def decode_codes(codes, char_list = list(string.printable)):
+    table = tf.lookup.StaticHashTable(
+        tf.lookup.KeyValueTensorInitializer(
+            np.arange(len(char_list)),
+            char_list,
+            key_dtype=tf.int32
+        ),
+        '',
+        name='id2char'
+    )
+    return table.lookup(codes)

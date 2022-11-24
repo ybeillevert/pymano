@@ -4,6 +4,8 @@ from tensorflow.keras.layers import Conv2D, BatchNormalization, MaxPooling2D, Le
 from tensorflow.keras.layers import GRU, Bidirectional, Dense, Lambda
     
 def ctc_loss(labels, logits):
+    """ Loss function used when training the CRNN model
+    """
     return tf.reduce_mean(tf.nn.ctc_loss(
         labels = labels,
         logits = logits,
@@ -13,7 +15,8 @@ def ctc_loss(labels, logits):
         blank_index=-1))
     
 def build_crnn(input_shape, charList = list(string.printable)):
-
+    """ Build and returns a CRNN model
+    """
     model = tf.keras.Sequential()
     
     # CNN
