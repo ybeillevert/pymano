@@ -3,7 +3,7 @@ Welcome to my project for the Datascientist course from Datascientest.
 The objective is to build a model that can recognize a word written by hand.<br/>
 To train the model, we used the IAM Handwriting Database that contains images of handwritten words<br/>
 The final product should contain:
-- the code a the model
+- the code of the model
 - the code of a streamlit application for a presentation
 - a report of ~20 pages
 
